@@ -1,10 +1,10 @@
-FROM openjdk:8-jdk-alpine
-LABEL baki sevgul <baki.sevgul@gmail.com>
+ROM openjdk:8-jdk-alpine
+LABEL Miguel Doctor <migueldoctor@gmail.com>
 RUN apk add --no-cache curl tar bash procps
 
 # Downloading and installing Maven
 # 1- Define a constant with the version of maven you want to install
-ARG MAVEN_VERSION=3.8.4      
+ARG MAVEN_VERSION=3.6.1         
 
 # 2- Define a constant with the working directory
 ARG USER_HOME_DIR="/root"
