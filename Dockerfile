@@ -1,4 +1,4 @@
-ROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine
 LABEL baki sevgul <baki.sevgul@gmail.com>
 RUN apk add --no-cache curl tar bash procps
 
