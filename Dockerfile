@@ -1,4 +1,4 @@
-ROM openjdk:8-jdk-alpine
+fROM openjdk:8-jdk-alpine
 LABEL Miguel Doctor <migueldoctor@gmail.com>
 RUN apk add --no-cache curl tar bash procps
 
