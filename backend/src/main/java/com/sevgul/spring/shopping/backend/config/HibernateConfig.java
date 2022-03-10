@@ -1,0 +1,66 @@
+package com.sevgul.spring.shopping.backend.config;
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration 
+@ComponentScan(basePackages = {"com.sevgul.spring.shopping.backend"})
+@EnableTransactionManagement
+public class HibernateConfig {
+	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
+	//jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
+	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
+	private final static String DATABASE_DRIVER = "org.h2.Driver";
+	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
+	private final static String DATABASE_USER = "sa";
+	private final static String DATABASE_PASSWORD = "";
+	
+	@Bean
+	public DataSource getDataSource() {
+		BasicDataSource ds = new BasicDataSource();
+		ds.setDriverClassName(DATABASE_DRIVER);
+		ds.setUrl(DATABASE_URL);
+		ds.setUsername(DATABASE_USER);
+		ds.setPassword(DATABASE_PASSWORD);
+		
+		return ds;
+	}
+
+	@Bean
+	public SessionFactory getSessionFactory(DataSource ds) {
+		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(ds);
+		builder.addProperties(getHibernateProperties());
+		builder.scanPackages("com.sevgul.spring.shopping.backend");
+		
+		return builder.buildSessionFactory();
+	}
+
+	private Properties getHibernateProperties() {
+		Properties prop = new Properties();
+		prop.put("hibernate.dialect", DATABASE_DIALECT);
+		prop.put("hibernate.show_sql", true);
+		prop.put("hibernate.format_sql", true);
+		prop.put("hibernate.hbm2ddl", "validate");
+		return prop;
+	}
+
+	
+	@Bean
+	public HibernateTransactionManager getTransactionManager(SessionFactory sf) {
+		HibernateTransactionManager tm = new HibernateTransactionManager(sf);
+		
+		return tm;
+	}
+	
+}
