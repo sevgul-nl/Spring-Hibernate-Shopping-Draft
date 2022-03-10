@@ -1,11 +1,6 @@
 
 pipeline {
-    agent {
-        docker {
-            image 'openjdk:8-jdk-slim'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent { dockerfile true }
     environment {
         registry = 'sevgulnl/Spring-Hibernate-Shopping-Draft'
         HOME = '.'
