@@ -13,7 +13,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B clean package'
+                sh 'mvn clean package --file=./frontend/pom.xml'
+                sh 'mvn clean package --file=./backend/pom.xml'
             }
         }
         stage('Test') { 
