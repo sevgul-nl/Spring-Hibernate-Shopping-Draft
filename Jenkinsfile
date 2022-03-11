@@ -1,6 +1,6 @@
 
 pipeline {
-    agent any
+    agent { dockerfile true }
     tools {
         maven "pi-Maven 3.6.3"
         jdk "pi-open-jdk-8"
