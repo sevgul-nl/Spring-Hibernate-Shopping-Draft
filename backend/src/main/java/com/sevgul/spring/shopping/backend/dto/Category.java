@@ -13,7 +13,7 @@ public class Category {
 	private String category;
 	private String description;
 	@Column(name = "image_url") private String image;
-	@Column(name = "is_active") private String active;
+	@Column(name = "is_active") private boolean active;
 
 	public int getId() {
 		return id;
@@ -39,10 +39,10 @@ public class Category {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getActive() {
+	public boolean getActive() {
 		return active;
 	}
-	public void setActive(String active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 	

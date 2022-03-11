@@ -47,7 +47,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		
 		String hqlQuery = "From Category Where active = :active";
 		Query<?> query = sf.getCurrentSession().createQuery(hqlQuery);
-		query.setParameter("active", "true" );
+		query.setParameter("active", true );
 		
 		return (List<Category>) query.getResultList();
 	}

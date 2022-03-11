@@ -31,7 +31,7 @@ public class CategoryTest
     	category.setCategory("Category_2");
     	category.setDescription("Description for Category_2");
     	category.setImage("CAT_2.png");
-    	category.setActive("true");
+    	category.setActive(true);
     	
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category inserted !..", true, categoryDao.add(category) );
@@ -42,7 +42,7 @@ public class CategoryTest
     	category.setCategory("Category_3");
     	category.setDescription("Description for Category_3");
     	category.setImage("CAT_3.png");
-    	category.setActive("true");
+    	category.setActive(true);
     	
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category inserted !..", true, categoryDao.add(category) );
@@ -54,7 +54,7 @@ public class CategoryTest
     	category.setCategory("Category_4");
     	category.setDescription("Description for Category_3");
     	category.setImage("CAT_3.png");
-    	category.setActive("true");
+    	category.setActive(true);
     	
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category inserted !..", true, categoryDao.add(category) );
@@ -66,7 +66,7 @@ public class CategoryTest
     	category.setCategory("Category_4");
     	category.setDescription("Description for Category_4 updated");
     	category.setImage("CATu_4.png");
-    	category.setActive("true");
+    	category.setActive(true);
     	
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category updated !..", true, categoryDao.update(category) );
@@ -79,7 +79,7 @@ public class CategoryTest
     	category.setCategory("Category_4");
     	category.setDescription("Description for Category_4 updated..");
     	category.setImage("CATuu_4.png");
-    	category.setActive("false");
+    	category.setActive(false);
     	
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category deleted !..", true, categoryDao.update(category) );
