@@ -4,7 +4,7 @@ ENV RELEASE_DATE 2022-01-04
 ENV VERSION 2.0.206
 ENV H2DATA /h2-data
 
-RUN curl https://github.com/h2database/h2database/releases/download/version-$VERSION/h2-$RELEASE_DATE.zip -o h2.zip \
+RUN curl https://github.com/h2database/h2database/releases/download/version-${VERSION}/h2-${RELEASE_DATE}.zip -o h2.zip \
     && unzip h2.zip -d . \
     && rm h2.zip
 
