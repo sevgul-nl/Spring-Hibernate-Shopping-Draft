@@ -22,7 +22,7 @@ public class HibernateConfig {
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
 	//jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2;AUTO_SERVER=TRUE";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USER = "sa";
@@ -69,7 +69,7 @@ public class HibernateConfig {
 		prop.put("hibernate.dialect", DATABASE_DIALECT);
 		prop.put("hibernate.show_sql", true);
 		prop.put("hibernate.format_sql", true);
-		prop.put("hibernate.hbm2ddl.auto", "create");
+		//prop.put("hibernate.hbm2ddl.auto", "validate");
 		return prop;
 	}
 
