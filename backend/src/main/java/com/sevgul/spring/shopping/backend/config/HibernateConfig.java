@@ -1,10 +1,12 @@
 package com.sevgul.spring.shopping.backend.config;
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.h2.tools.Server;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +22,7 @@ public class HibernateConfig {
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
 	//jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2;AUTO_SERVER=TRUE";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USER = "sa";
@@ -28,6 +30,7 @@ public class HibernateConfig {
 	
 	@Bean
 	public DataSource getDataSource() {
+		//startTCPServer();
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(DATABASE_DRIVER);
 		ds.setUrl(DATABASE_URL);
@@ -37,6 +40,21 @@ public class HibernateConfig {
 		return ds;
 	}
 
+	//@Bean
+	public void startTCPServer(){
+	    try {
+	        Server h2Server = Server.createTcpServer("-tcpPort", "9092", "-tcpAllowOthers").start();
+	        if (h2Server.isRunning(true)) {
+	            System.out.println(h2Server.getStatus());
+	        } else {
+	            throw new RuntimeException("Could not start H2 server.");
+	        }
+	    } catch (SQLException e) {
+	        throw new RuntimeException("Failed to start H2 server: ", e);
+	    }
+	}
+	
+	
 	@Bean
 	public SessionFactory getSessionFactory(DataSource ds) {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(ds);
@@ -51,7 +69,7 @@ public class HibernateConfig {
 		prop.put("hibernate.dialect", DATABASE_DIALECT);
 		prop.put("hibernate.show_sql", true);
 		prop.put("hibernate.format_sql", true);
-		prop.put("hibernate.hbm2ddl.auto", "validate");
+		prop.put("hibernate.hbm2ddl.auto", "create");
 		return prop;
 	}
 
@@ -62,5 +80,7 @@ public class HibernateConfig {
 		
 		return tm;
 	}
+	
+	
 	
 }
