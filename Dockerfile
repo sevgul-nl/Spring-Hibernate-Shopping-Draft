@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-ENV RELEASE_DATE 22022-01-16
+ENV RELEASE_DATE 2022-01-16
 ENV H2DATA /h2-data
 
 RUN curl http://www.h2database.com/h2-$RELEASE_DATE.zip -o h2.zip \
