@@ -13,8 +13,9 @@ pipeline {
     stages {
         stage('Initialize'){
             steps{
-                sh 'docker run --name h2-data -p 8082:8082 -d buildo/h2database'
-            }
+                //sh 'docker run --name h2-data -p 8082:8082 -d buildo/h2database'
+                sh '~/h2/bin/h2-server.sh'  
+            } 
         }
         stage('Build') {
             steps {
