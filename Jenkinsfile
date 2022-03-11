@@ -10,6 +10,11 @@ pipeline {
         HOME = '.'
     }
     stages {
+        stage('init h2'){
+            steps{
+                sh 'docker run --name h2-data -p 8082:8082 -d buildo/h2database'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean package --file=./backend/pom.xml'
