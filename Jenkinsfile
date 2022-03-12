@@ -21,35 +21,21 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package --file=./backend/pom.xml'
-                sh 'mvn clean package --file=./frontend/pom.xml'
+                sh 'mvn clean install -U --file=./backend/pom.xml'
+                sh 'mvn clean install -U --file=./frontend/pom.xml'
                
             }
         }
         stage('Test') { 
             steps {
-                sh 'mvn test --file=./backend/pom.xml'
+                //sh 'mvn test --file=./backend/pom.xml'
+                sh 'echo  "implement Test" '
             }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml' 
                 }
             }
-        }
-        stage('Build frontend') {
-            steps {
-                sh 'echo  "implement frontend" '
-            }
-        }
-        stage('Build backend') {
-            steps {
-                sh 'echo  "implement build backend" '
-                
-            }
-        }
-        stage('Test2') {
-            
-            steps {  sh 'echo  "implement test" '  }
         }
         stage('Publish') {
             environment {   registryCredential = 'dockerhub'  }
