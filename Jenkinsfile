@@ -7,7 +7,7 @@ pipeline {
         jdk "pi-open-jdk-8"
     }
     environment {
-        registry = 'sevgulnl/Spring-Hibernate-Shopping-Draft'
+        registry = 'sevgulnl/sphib-shopping'
         HOME = '.'
     }
     stages {
