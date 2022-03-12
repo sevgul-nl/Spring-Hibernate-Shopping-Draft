@@ -39,7 +39,7 @@ pipeline {
                     //sh 'docker stop $(docker ps -aqf "name=sevgulnl/snl-vue") && docker container prune -f -v $(docker ps -aqf "name=sevgulnl/snl-vue")'
                     //sh 'docker image prune -f -v $(docker ps -aqf "name=sevgulnl/snl-vue")'
 
-                    //def appimage = docker.build registry + ":$BUILD_NUMBER"
+                    def appimage = docker.build registry + ":$BUILD_NUMBER"
                     docker.withRegistry( '', registryCredential ) {
                         appimage.push()
                         appimage.push('latest')
