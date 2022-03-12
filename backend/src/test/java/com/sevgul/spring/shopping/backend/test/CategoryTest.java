@@ -25,7 +25,7 @@ public class CategoryTest
 	}
 	
 	
-	@Test
+	//@Test
     public void addCategory1(){
     	category = new Category();
     	category.setCategory("Category_1");
@@ -36,7 +36,7 @@ public class CategoryTest
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category inserted !..", true, categoryDao.add(category) );
     }
-	@Test
+	//@Test
     public void addCategory2(){
     	category = new Category();
     	category.setCategory("Category_2");
@@ -47,7 +47,7 @@ public class CategoryTest
        // assertTrue( categoryDao.add(category));
     	assertEquals("A category inserted !..", true, categoryDao.add(category) );
     }
-    @Test
+    //@Test
     public void addCategory3(){
     	category = new Category();
     	category.setCategory("Category_3");
