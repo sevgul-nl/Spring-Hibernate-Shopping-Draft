@@ -31,11 +31,6 @@ pipeline {
                 //sh 'mvn test --file=./backend/pom.xml'
                 sh 'echo  "implement Test" '
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml' 
-                }
-            }
         }
         stage('Publish') {
             environment {   registryCredential = 'dockerhub'  }
