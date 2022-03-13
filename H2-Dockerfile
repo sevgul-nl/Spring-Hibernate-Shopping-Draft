@@ -1,5 +1,8 @@
 FROM adoptopenjdk/openjdk8
 
+RUN apt-get install unzip
+RUN apt-get install unzip
+
 ENV RELEASE_DATE 2019-10-14
 ENV H2DATA /h2-data
 
