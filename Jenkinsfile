@@ -16,7 +16,8 @@ pipeline {
                 //sh 'docker run --name myh2 -p 8082:8082 -d buildo/h2database -v /home/pi/h2-data:/h2-data'
                 //sh '/home/pi/h2/bin/h2-server.sh'  
                 //sh 'nohup java -cp /home/pi/h2/bin/h2-2.1.210.jar org.h2.tools.Server -web -webAllowOthers -tcp -tcpAllowOthers -baseDir /home/pi/h2-data'
-               sh 'echo  "implement Initialize" '
+               //sh 'echo  "implement Initialize" '
+               sh 'docker build -t getting-started -f ./H2-Dockerfile . '
             } 
         }
         stage('Build') {
