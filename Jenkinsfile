@@ -48,7 +48,7 @@ pipeline {
                         appimage.push()
                         appimage.push('latest')
                     }
-                 sh 'docker container rm shopping --force'
+                 sh 'docker container rm sphib --force'
                  sh 'docker run -dp 8082:8080 --name sphib sevgulnl/sphib-shopping'
                  //sh 'docker container start shopping'
                 }
