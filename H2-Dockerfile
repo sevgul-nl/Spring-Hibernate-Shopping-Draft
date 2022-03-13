@@ -8,7 +8,7 @@ RUN apt-get update \
     && unzip h2.zip -d . \
     && rm h2.zip
 
-VOLUME /h2-data
+VOLUME /h2-data:/h2-data
 
 EXPOSE 9092 9092
 
