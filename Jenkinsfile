@@ -18,7 +18,8 @@ pipeline {
                 //sh 'nohup java -cp /home/pi/h2/bin/h2-2.1.210.jar org.h2.tools.Server -web -webAllowOthers -tcp -tcpAllowOthers -baseDir /home/pi/h2-data'
                //sh 'echo  "implement Initialize" '
                sh 'docker build  -t h2-1.4.200 -f ./H2-Dockerfile . '
-               sh 'docker run -dp 9092:9092 h2-1.4.200 '
+               sh 'docker run -dp 9092:9092 --rm --name h2 h2-1.4.200 '
+               sh 'docker container start h2'
             } 
         }
         stage('Build') {
