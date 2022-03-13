@@ -48,15 +48,11 @@ pipeline {
                         appimage.push()
                         appimage.push('latest')
                     }
+                 sh 'docker container rm shopping --force'
+                 sh 'docker run -dp 9080:8080  --name shopping sevgulnl/sphib-shopping '
+                 sh 'docker container start shopping'
                 }
             }
         }
-        //stage('Run') {
-    //   steps {
-    //        script {
-    //            sh 'docker run -d -p 2200:80 --rm --name etic-draft sevgulnl/react-etic-draft'
-    //        }
-    //    }
-    //}
     }
 }
