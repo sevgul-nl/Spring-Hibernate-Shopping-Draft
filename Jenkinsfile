@@ -17,7 +17,7 @@ pipeline {
                 //sh '/home/pi/h2/bin/h2-server.sh'  
                 //sh 'nohup java -cp /home/pi/h2/bin/h2-2.1.210.jar org.h2.tools.Server -web -webAllowOthers -tcp -tcpAllowOthers -baseDir /home/pi/h2-data'
                //sh 'echo  "implement Initialize" '
-               sh 'docker container rm h2-1.4.200 --force'
+               sh 'docker container rm h2 --force'
                sh 'docker build  -t h2-1.4.200 -f ./H2-Dockerfile . '
                sh 'docker run -dp 9092:9092 -v /home/pi/h2-data:/h2-data --name h2 h2-1.4.200 '
                sh 'docker container start h2'
