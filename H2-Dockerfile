@@ -2,7 +2,8 @@ FROM adoptopenjdk/openjdk8
 
 ENV RELEASE_DATE 2019-10-14
 ENV H2DATA /h2-data
-RUN apt-get install unzip \
+RUN apt-get update \
+    && apt-get install unzip \
     && curl http://www.h2database.com/h2-$RELEASE_DATE.zip -o h2.zip \
     && unzip h2.zip -d . \
     && rm h2.zip
