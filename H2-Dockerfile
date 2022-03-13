@@ -10,7 +10,7 @@ RUN  curl http://www.h2database.com/h2-$RELEASE_DATE.zip -o h2.zip \
     && unzip h2.zip -d . \
     && rm h2.zip
 
-VOLUME /home/pi/h2-data:/h2-data
+VOLUME /h2-data
 
 EXPOSE 9092 9092
 EXPOSE 8082 8082
