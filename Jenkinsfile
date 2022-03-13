@@ -49,7 +49,7 @@ pipeline {
                         appimage.push('latest')
                     }
                  sh 'docker container rm shopping --force'
-                 sh 'docker run -dp 9080:8080  --name shopping sevgulnl/sphib-shopping '
+                 sh 'docker run -dp 8080:8080  --name shopping sevgulnl/sphib-shopping '
                  sh 'docker container start shopping'
                 }
             }
