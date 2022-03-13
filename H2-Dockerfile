@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM arm32v7/openjdk:11
 
 ENV RELEASE_DATE 2019-10-14
 ENV H2DATA /h2-data
