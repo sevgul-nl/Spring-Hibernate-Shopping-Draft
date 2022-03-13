@@ -20,7 +20,6 @@ pipeline {
                sh 'docker container rm h2 --force'
                sh 'docker build  -t h2-1.4.200 -f ./H2-Dockerfile . '
                sh 'docker run -dp 9092:9092  --name h2 h2-1.4.200 '
-               sh 'docker container rm h2 --force'
                sh 'docker container start h2'
             } 
         }
