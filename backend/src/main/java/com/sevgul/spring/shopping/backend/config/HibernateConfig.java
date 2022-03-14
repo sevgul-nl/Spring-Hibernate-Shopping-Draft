@@ -1,7 +1,6 @@
 package com.sevgul.spring.shopping.backend.config;
 
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.Properties;
 
 import javax.sql.DataSource;
