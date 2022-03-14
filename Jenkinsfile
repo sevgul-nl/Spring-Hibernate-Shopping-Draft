@@ -9,6 +9,7 @@ pipeline {
     environment {
         registry = 'sevgulnl/sphib-shopping'
         HOME = '.'
+        JENKINS_USER='pi'
     }
     stages {
         stage('Initialize'){
