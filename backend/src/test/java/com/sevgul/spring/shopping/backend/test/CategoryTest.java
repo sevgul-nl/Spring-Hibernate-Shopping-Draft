@@ -112,7 +112,7 @@ public class CategoryTest
     	assertEquals("A category selected !..", "Category_1", categoryDao.get(3).getCategory() );
     }
     
-    //@Test
+    @Test
     public void listCategory(){
     	
         // assertTrue( categoryDao.add(category));
