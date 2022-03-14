@@ -31,12 +31,12 @@ pipeline {
                
             }
         }
-        stage('Test') { 
-            steps {
-                //sh 'mvn test --file=./backend/pom.xml'
-                sh 'echo  "implement Test" '
-            }
-        }
+       // stage('Test') { 
+       //     steps {
+       //         //sh 'mvn test --file=./backend/pom.xml'
+       //        sh 'echo  "implement Test" '
+       //     }
+       // }
         stage('Publish') {
             environment {   registryCredential = 'dockerhub'  }
             steps {
