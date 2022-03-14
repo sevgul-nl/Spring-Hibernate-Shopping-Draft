@@ -3,7 +3,7 @@ package com.sevgul.spring.shopping.backend.test;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-
+import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.sevgul.spring.shopping.backend.dao.CategoryDao;
@@ -112,7 +112,7 @@ public class CategoryTest
     	assertEquals("A category selected !..", "Category_1", categoryDao.get(3).getCategory() );
     }
     
-    @Test
+    //@Test
     public void listCategory(){
     	
         // assertTrue( categoryDao.add(category));
