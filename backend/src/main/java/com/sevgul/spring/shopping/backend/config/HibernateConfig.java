@@ -1,6 +1,7 @@
 package com.sevgul.spring.shopping.backend.config;
 
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -23,16 +24,16 @@ public class HibernateConfig {
 	//jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	// doker jdbc:h2:tcp://my-h2/my-db-name
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	//public static String DATABASE_URL = "jdbc:h2:tcp://localhost/h2-data/myh2";
+	public static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
 	//public static String DATABASE_URL = "jdbc:h2:tcp://h2-data/myh2";
-    private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
+    //private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USER = "sa";
 	private final static String DATABASE_PASSWORD = "";
 	
 	@Bean
-	public DataSource getDataSource() {
+	public DataSource getDataSource( ) {
 		//startTCPServer();
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(DATABASE_DRIVER);
@@ -43,20 +44,19 @@ public class HibernateConfig {
 		return ds;
 	}
 
-	//@Bean
-	public void startTCPServer(){
-	    try {
-	        Server h2Server = Server.createTcpServer("-tcpPort", "9092", "-tcpAllowOthers").start();
-	        if (h2Server.isRunning(true)) {
-	            System.out.println(h2Server.getStatus());
-	        } else {
-	            throw new RuntimeException("Could not start H2 server.");
-	        }
-	    } catch (SQLException e) {
-	        throw new RuntimeException("Failed to start H2 server: ", e);
-	    }
-	}
+
 	
+	@Bean(initMethod = "start", destroyMethod = "stop")
+    public Server h2Server() throws SQLException {
+		Server h2Server =  null;
+   
+        try {
+        	h2Server =  Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create H2 server: ", e);
+        }
+        return h2Server;
+	}	
 	
 	@Bean
 	public SessionFactory getSessionFactory(DataSource ds) {
