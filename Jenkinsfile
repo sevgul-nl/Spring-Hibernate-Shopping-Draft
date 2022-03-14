@@ -50,7 +50,7 @@ pipeline {
                         appimage.push('latest')
                     }
                  sh 'docker container rm sphib --force'
-                 sh 'docker run -dp 8081:8080  -v /home/pi/h2-data:h2-data --name sphib sevgulnl/sphib-shopping'
+                 sh 'docker run -dp 8081:8080  -v /home/pi/h2-data:/h2-data --name sphib sevgulnl/sphib-shopping'
                  //sh 'docker container start shopping'
                 }
             }
