@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-
 import com.sevgul.spring.shopping.backend.dao.CategoryDao;
 import com.sevgul.spring.shopping.backend.dto.Category;
 
@@ -42,13 +40,13 @@ public class CategoryDaoImpl implements CategoryDao {
 		categories.add(cat);
 	}
 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Category> list() {
 		
 		String hqlQuery = "From Category Where active = :active";
 		Query<?> query = sf.getCurrentSession().createQuery(hqlQuery);
 		query.setParameter("active", true );
-		
 		return (List<Category>) query.getResultList();
 	}
 

@@ -13,7 +13,7 @@ RUN  curl http://www.h2database.com/h2-$RELEASE_DATE.zip -o h2.zip \
 # VOLUME /h2-data
 
 EXPOSE 9092 9092
-EXPOSE 8082 8082
+# EXPOSE 8082 8082
 
 RUN ln -s $(ls /h2/bin/*jar) /h2/bin/h2.jar
 CMD java -cp /h2/bin/h2.jar org.h2.tools.Server \
