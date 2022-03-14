@@ -17,10 +17,10 @@ pipeline {
                 //sh 'docker run --name myh2 -p 8082:8082 -d buildo/h2database -v /home/pi/h2-data:/h2-data'
                 //sh '/home/pi/h2/bin/h2-server.sh'  
                 //sh 'nohup java -cp /home/pi/h2/bin/h2-2.1.210.jar org.h2.tools.Server -web -webAllowOthers -tcp -tcpAllowOthers -baseDir /home/pi/h2-data'
-               //sh 'echo  "implement Initialize" '
-               sh 'docker container rm h2 --force'
-               sh 'docker build  -t h2-1.4.200 -f ./H2-Dockerfile . '
-               sh 'docker run -dp 9092:9092 -v /home/pi/h2-data:/h2-data --name h2 h2-1.4.200 '                           
+               sh 'echo  "implement Initialize" '
+               //sh 'docker container rm h2 --force'
+               //sh 'docker build  -t h2-1.4.200 -f ./H2-Dockerfile . '
+               //sh 'docker run -dp 9092:9092 -v /home/pi/h2-data:/h2-data --name h2 h2-1.4.200 '                           
                //sh 'docker container start h2'
             } 
         }
@@ -50,7 +50,7 @@ pipeline {
                         appimage.push('latest')
                     }
                  sh 'docker container rm sphib --force'
-                 sh 'docker run -dp 8082:8080 --name sphib sevgulnl/sphib-shopping'
+                 sh 'docker run -dp 8081:8080 --name sphib sevgulnl/sphib-shopping'
                  //sh 'docker container start shopping'
                 }
             }
