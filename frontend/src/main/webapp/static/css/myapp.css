@@ -1,0 +1,47 @@
+htm {
+	height: 100%;
+}
+
+body {
+	padding-top: 70px;
+	height: 100%;
+}
+
+.thumbnail img {
+	width: 100%;
+}
+
+.ratings {
+	color: #d17581;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.thumbnail .caption-full {
+	padding: 9px;
+	color: #333;
+}
+
+footer {
+	margin: 0;
+	
+}
+
+.wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+.content {
+	padding-bottom: 60px; /*height of footer*/
+}
+
+.footer {
+	position: fixed;
+	bottom: 20px;
+	height: 60px;
+}
