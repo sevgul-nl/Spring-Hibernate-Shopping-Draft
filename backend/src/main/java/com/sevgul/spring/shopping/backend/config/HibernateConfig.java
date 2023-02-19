@@ -25,8 +25,8 @@ public class HibernateConfig {
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://h2-data/myh2";
-    //private final static String DATABASE_URL = "jdbc:h2:/h2-data/myh2";
+	//private final static String DATABASE_URL = "jdbc:h2:tcp://h2-data/myh2";
+    private final static String DATABASE_URL = "jdbc:h2:/h2-data/myh2";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USER = "sa";
