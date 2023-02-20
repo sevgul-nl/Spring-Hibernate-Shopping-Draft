@@ -24,6 +24,7 @@ public class HibernateConfig {
 	// doker jdbc:h2:tcp://my-h2/my-db-name
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
 	private final static String DATABASE_URL = "jdbc:h2:/h2-data/myh2";
+	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
 	
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
