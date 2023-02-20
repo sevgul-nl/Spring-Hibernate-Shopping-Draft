@@ -23,8 +23,8 @@ public class HibernateConfig {
 	//jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	// doker jdbc:h2:tcp://my-h2/my-db-name
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
-	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/h2-data/myh2";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2";
+	//private final static String DATABASE_URL = "jdbc:h2://h2-data/myh2";
 	
 	//private final static String DATABASE_URL = "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
@@ -74,7 +74,7 @@ public class HibernateConfig {
 		prop.put("hibernate.dialect", DATABASE_DIALECT);
 		prop.put("hibernate.show_sql", true);
 		prop.put("hibernate.format_sql", true);
-		//prop.put("hibernate.hbm2ddl.auto", "validate");
+		prop.put("hibernate.hbm2ddl.auto", "update");
 		return prop;
 	}
 
