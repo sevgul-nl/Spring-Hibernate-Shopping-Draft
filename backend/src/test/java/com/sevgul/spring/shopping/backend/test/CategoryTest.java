@@ -22,7 +22,7 @@ public class CategoryTest {
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
 
-	// @Test
+	@Test
 	public void addCategory1() {
 		category = new Category();
 		category.setCategory("Category_1");
@@ -34,7 +34,7 @@ public class CategoryTest {
 		assertEquals("A category inserted !..", true, categoryDao.add(category));
 	}
 
-	// @Test
+	@Test
 	public void addCategory2() {
 		category = new Category();
 		category.setCategory("Category_2");
@@ -46,7 +46,7 @@ public class CategoryTest {
 		assertEquals("A category inserted !..", true, categoryDao.add(category));
 	}
 
-	// @Test
+	@Test
 	public void addCategory3() {
 		category = new Category();
 		category.setCategory("Category_3");
@@ -58,7 +58,7 @@ public class CategoryTest {
 		assertEquals("A category inserted !..", true, categoryDao.add(category));
 	}
 
-	// @Test
+	@Test
 	public void addCategory4() {
 		category = new Category();
 		category.setCategory("Category_4");
@@ -70,7 +70,7 @@ public class CategoryTest {
 		assertEquals("A category inserted !..", true, categoryDao.add(category));
 	}
 
-	// @Test
+	@Test
 	public void updateCategory() {
 		category = categoryDao.get(4);
 		category.setCategory("Category_4");
@@ -82,7 +82,7 @@ public class CategoryTest {
 		assertEquals("A category updated !..", true, categoryDao.update(category));
 	}
 
-	// @Test
+	@Test
 	public void setCategoryInactive() {
 		category = categoryDao.get(4);
 		category.setCategory("Category_4");
