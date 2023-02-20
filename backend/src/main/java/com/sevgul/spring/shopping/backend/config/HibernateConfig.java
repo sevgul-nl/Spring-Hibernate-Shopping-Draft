@@ -53,7 +53,7 @@ public class HibernateConfig {
 		Server h2Server =  null;
    
         try {
-        	h2Server =  Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092").start();
+        	h2Server =  Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092");
         } catch (SQLException e) {
             throw new RuntimeException("Failed to create H2 server: ", e);
         }
