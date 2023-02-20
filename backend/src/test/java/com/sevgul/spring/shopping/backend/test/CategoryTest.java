@@ -16,17 +16,13 @@ public class CategoryTest {
 
 	private Category category;
 	
-
+	
 	@BeforeClass
 	public static void init() {
+		
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.sevgul.spring.shopping.backend");
 		context.refresh();
-		try {	
-			context.getBean("h2Server");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
