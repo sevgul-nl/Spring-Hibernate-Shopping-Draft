@@ -2,6 +2,7 @@ package com.sevgul.spring.shopping.backend.test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.h2.tools.Server;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,13 +13,21 @@ import com.sevgul.spring.shopping.backend.dto.Category;
 public class CategoryTest {
 	private static AnnotationConfigApplicationContext context;
 	private static CategoryDao categoryDao;
+
 	private Category category;
+	
 
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.sevgul.spring.shopping.backend");
 		context.refresh();
+		try {	
+			context.getBean("h2Server");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
 

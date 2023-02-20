@@ -46,9 +46,7 @@ public class HibernateConfig {
 		return ds;
 	}
 
-
-	
-	@Bean(initMethod = "start", destroyMethod = "stop")
+	@Bean(initMethod = "start", destroyMethod = "stop", name="h2Server"  )
     public Server h2Server() throws SQLException {
 		Server h2Server =  null;
    
