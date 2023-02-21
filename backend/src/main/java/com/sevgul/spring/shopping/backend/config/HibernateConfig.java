@@ -40,16 +40,16 @@ public class HibernateConfig {
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource ds = null;
-		try {
+		//try {
 			//h2Server();
 			ds = new BasicDataSource();
 			ds.setDriverClassName(DATABASE_DRIVER);
 			ds.setUrl(DATABASE_URL);
 			ds.setUsername(DATABASE_USER);
 			ds.setPassword(DATABASE_PASSWORD);
-		} catch (SQLException e) {
-			throw new RuntimeException("Failed to create H2 server: ", e);
-		}
+		//} catch (SQLException e) {
+		//	throw new RuntimeException("Failed to create H2 server: ", e);
+		//}
 		return ds;
 	}
 	/*
