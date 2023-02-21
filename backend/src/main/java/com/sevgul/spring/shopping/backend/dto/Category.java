@@ -9,7 +9,10 @@ import javax.persistence.Id;
 @Entity
 public class Category {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) int id;
+	@Id 
+	//@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	int id;
+	
 	private String category;
 	private String description;
 	@Column(name = "image_url") private String image;

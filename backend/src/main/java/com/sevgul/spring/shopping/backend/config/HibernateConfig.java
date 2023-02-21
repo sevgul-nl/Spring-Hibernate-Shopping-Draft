@@ -23,10 +23,9 @@ public class HibernateConfig {
 	// "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
 	// jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	// doker jdbc:h2:tcp://my-h2/my-db-name
-	// private final static String DATABASE_URL =
-	// "jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://127.0.0.1//home/pi/h2-data/myh2";
-	// private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
+	//private final static String DATABASE_URL ="jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
+	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2";
+	private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
 
 	// private final static String DATABASE_URL =
 	// "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
@@ -42,8 +41,8 @@ public class HibernateConfig {
 	public DataSource getDataSource() {
 		BasicDataSource ds = null;
 		try {
-			h2Server();
-			 ds = new BasicDataSource();
+			//h2Server();
+			ds = new BasicDataSource();
 			ds.setDriverClassName(DATABASE_DRIVER);
 			ds.setUrl(DATABASE_URL);
 			ds.setUsername(DATABASE_USER);
@@ -53,7 +52,7 @@ public class HibernateConfig {
 		}
 		return ds;
 	}
-
+	/*
 	@Bean(initMethod = "start", destroyMethod = "stop")
 	public Server h2Server() throws SQLException {
 		Server h2Server = null;
@@ -66,7 +65,7 @@ public class HibernateConfig {
 		}
 		return h2Server;
 	}
-
+	*/
 	@Bean
 	public SessionFactory getSessionFactory(DataSource ds) {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(ds);
