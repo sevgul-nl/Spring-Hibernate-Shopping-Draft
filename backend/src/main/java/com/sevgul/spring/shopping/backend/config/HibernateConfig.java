@@ -25,7 +25,7 @@ public class HibernateConfig {
 	// doker jdbc:h2:tcp://my-h2/my-db-name
 	//private final static String DATABASE_URL ="jdbc:h2:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2;MODE=LEGACY";
 	//private final static String DATABASE_URL ="jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2;MODE=LEGACY";
-	private final static String DATABASE_URL = "jdbc:h2:tcp://127.0.0.1//home/pi/h2-data/myh2;MODE=LEGACY";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2;MODE=LEGACY";
 	//private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2;MODE=LEGACY";
 
 	// private final static String DATABASE_URL =
