@@ -12,7 +12,7 @@ import com.sevgul.spring.shopping.backend.dao.CategoryDao;
 import com.sevgul.spring.shopping.backend.dto.Category;
 
 @Repository("categoryDao")
-@Transactional
+@Transactional(readOnly = false)
 public class CategoryDaoImpl implements CategoryDao {
 
 	@Autowired
