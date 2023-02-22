@@ -42,7 +42,7 @@ public class HibernateConfig {
 	public DataSource getDataSource() {
 		BasicDataSource ds = null;
 		try {
-			//h2Server();
+			h2Server();
 			ds = new BasicDataSource();
 			ds.setDriverClassName(DATABASE_DRIVER);
 			ds.setUrl(DATABASE_URL);
