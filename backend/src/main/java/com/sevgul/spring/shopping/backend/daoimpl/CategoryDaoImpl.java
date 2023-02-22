@@ -2,7 +2,6 @@ package com.sevgul.spring.shopping.backend.daoimpl;
 
 import java.util.List;
 
-import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import com.sevgul.spring.shopping.backend.dao.CategoryDao;
 import com.sevgul.spring.shopping.backend.dto.Category;
 
 @Repository("categoryDao")
-@Transactional(readOnly = false)
+@Transactional
 public class CategoryDaoImpl implements CategoryDao {
 
 	@Autowired
@@ -54,15 +53,16 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public Category get(int id) {
 
-		return sf.getCurrentSession().get(Category.class, Integer.valueOf(id));
+		Category  cat = sf.getCurrentSession().get(Category.class, Integer.valueOf(id));
+		return cat;
 	}
 
 	@Override
-	@Transactional
 	public boolean add(Category cat) {
 		try {
-
-			sf.getCurrentSession().persist(cat);
+		
+					
+			sf.getCurrentSession().save(cat);
 			return true;
 
 		} catch (Exception e) {

@@ -1,5 +1,7 @@
 package com.sevgul.spring.shopping.backend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,16 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Category {
+public class Category implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id 
-	//@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private int id;
 	
 	private String category;
 	private String description;
-	@Column(name = "image_url") private String image;
-	@Column(name = "is_active") private boolean active;
+	
+	@Column(name = "image_url") 
+	private String image;
+	
+	@Column(name = "is_active") 
+	private boolean active;
 
 	public int getId() {
 		return id;

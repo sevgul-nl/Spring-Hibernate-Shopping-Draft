@@ -2,7 +2,6 @@ package com.sevgul.spring.shopping.backend.test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.h2.tools.Server;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -32,7 +31,7 @@ public class CategoryTest {
 		if (category == null) {
 
 			category = new Category();
-			category.setId(1);
+			//category.setId(1);
 			category.setCategory("Category_1");
 			category.setDescription("Description for Category_1");
 			category.setImage("CAT_1.png");
@@ -41,7 +40,7 @@ public class CategoryTest {
 			assertEquals("A category inserted !..", true, categoryDao.add(category));
 		}
 		// assertTrue( categoryDao.add(category));
-		assertEquals("Category exists !..", true, true);
+		//assertEquals("Category exists !..", true, true);
 	}
 
 	@Test
@@ -50,7 +49,7 @@ public class CategoryTest {
 		category = categoryDao.get(2);
 		if (category == null) {
 			category = new Category();
-			category.setId(2);
+			//category.setId(2);
 			category.setCategory("Category_2");
 			category.setDescription("Description for Category_2");
 			category.setImage("CAT_2.png");
@@ -66,7 +65,7 @@ public class CategoryTest {
 		category = categoryDao.get(3);
 		if (category == null) {
 			category = new Category();
-			category.setId(3);
+			//category.setId(3);
 			category.setCategory("Category_3");
 			category.setDescription("Description for Category_3");
 			category.setImage("CAT_3.png");
@@ -78,7 +77,7 @@ public class CategoryTest {
 		assertEquals("Category exists !..", true, true);
 	}
 
-	// @Test
+	//@Test
 	public void addCategory4() {
 		category = categoryDao.get(4);
 		if (category == null) {
@@ -151,14 +150,14 @@ public class CategoryTest {
 		assertEquals("Category deleted !..", true, true);
 	}
 
-	//@Test
+	@Test
 	public void getCategory() {
 
 		// assertTrue( categoryDao.add(category));
 		assertEquals("A category selected !..", "Category_1", categoryDao.get(1).getCategory());
 	}
 
-	//@Test
+	@Test
 	public void listCategory() {
 
 		// assertTrue( categoryDao.add(category));

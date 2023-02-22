@@ -1,10 +1,12 @@
 package com.sevgul.spring.shopping.backend.config;
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.h2.tools.Server;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,10 +23,10 @@ public class HibernateConfig {
 	// "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
 	// jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	// doker jdbc:h2:tcp://my-h2/my-db-name
-	//private final static String DATABASE_URL ="jdbc:h2:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	//private final static String DATABASE_URL ="jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
-	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
+	//private final static String DATABASE_URL ="jdbc:h2:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2;MODE=LEGACY";
+	//private final static String DATABASE_URL ="jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2;MODE=LEGACY";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2;MODE=LEGACY";
+	//private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
 
 	// private final static String DATABASE_URL =
 	// "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
@@ -39,19 +41,19 @@ public class HibernateConfig {
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource ds = null;
-		//try {
+		try {
 			//h2Server();
 			ds = new BasicDataSource();
 			ds.setDriverClassName(DATABASE_DRIVER);
 			ds.setUrl(DATABASE_URL);
 			ds.setUsername(DATABASE_USER);
 			ds.setPassword(DATABASE_PASSWORD);
-		//} catch (SQLException e) {
-		//	throw new RuntimeException("Failed to create H2 server: ", e);
-		//}
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to create H2 server: ", e);
+		}
 		return ds;
 	}
-	/*
+	
 	@Bean(initMethod = "start", destroyMethod = "stop")
 	public Server h2Server() throws SQLException {
 		Server h2Server = null;
@@ -64,7 +66,7 @@ public class HibernateConfig {
 		}
 		return h2Server;
 	}
-	*/
+	
 	@Bean
 	public SessionFactory getSessionFactory(DataSource ds) {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(ds);
@@ -79,6 +81,7 @@ public class HibernateConfig {
 		prop.put("hibernate.dialect", DATABASE_DIALECT);
 		prop.put("hibernate.show_sql", true);
 		prop.put("hibernate.format_sql", true);
+		//prop.put("hibernate.check_nullability", true);
 		// prop.put("hibernate.hbm2ddl.auto", "update");
 		return prop;
 	}
