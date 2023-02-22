@@ -2,7 +2,7 @@ FROM arm32v7/openjdk:11
 
 ENV RELEASE_DATE 2019-10-14
 
-# ENV H2DATA /home/pi/h2-data
+# ENV H2DATA /h2-data
 # RUN apt-get update \
 #    && apt-get install unzip \
 
