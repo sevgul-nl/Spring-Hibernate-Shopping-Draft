@@ -124,9 +124,25 @@ public class CategoryTest {
 	}
 
 	@Test
+	public void setCategorActive() {
+		category = categoryDao.get(4);
+		if (category != null) {
+			category.setCategory("Category_4");
+			category.setDescription("Description for Category_4 updated..");
+			category.setImage("CATuu_4.png");
+			category.setActive(true);
+
+			// assertTrue( categoryDao.add(category));
+			assertEquals("A category deleted !..", true, categoryDao.update(category));
+		}
+		assertEquals("Category updated !..", true, true);
+	}
+
+	
+	
+	@Test
 	public void delCategory() {
 
-		category = categoryDao.get(4);
 		category = categoryDao.get(4);
 		if (category != null) {
 			// assertTrue( categoryDao.add(category));
