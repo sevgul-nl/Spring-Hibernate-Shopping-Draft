@@ -1,12 +1,10 @@
 package com.sevgul.spring.shopping.backend.config;
 
-import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.h2.tools.Server;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,9 +21,10 @@ public class HibernateConfig {
 	// "jdbc:h2:tcp://localhost/~/boncuk"; jdbc:h2:[file:][<path>]
 	// jdbc:h2:tcp://<server>[:<port>]/[<path(/Users/bakimac/)>]<databaseName>
 	// doker jdbc:h2:tcp://my-h2/my-db-name
+	private final static String DATABASE_URL ="jdbc:h2:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
 	//private final static String DATABASE_URL ="jdbc:h2:tcp://localhost//Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/h2-data/myh2";
 	//private final static String DATABASE_URL = "jdbc:h2:tcp://localhost//home/pi/h2-data/myh2";
-	private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
+	//private final static String DATABASE_URL = "jdbc:h2:/home/pi/h2-data/myh2";
 
 	// private final static String DATABASE_URL =
 	// "jdbc:h2:file:/Users/bakimac/Documents/deve-works/wsSAShopping/SAShopping/backend/src/main/resources/db/shopping";
