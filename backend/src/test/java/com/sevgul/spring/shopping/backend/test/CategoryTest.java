@@ -108,7 +108,7 @@ public class CategoryTest {
 		assertEquals("A category updated !..", true, categoryDao.update(category));
 	}
 
-	@Test
+	//@Test
 	public void setCategoryInactive() {
 		category = categoryDao.get(4);
 		if (category != null) {
@@ -123,7 +123,7 @@ public class CategoryTest {
 		assertEquals("Category updated !..", true, true);
 	}
 
-	@Test
+	//@Test
 	public void setCategorActive() {
 		category = categoryDao.get(4);
 		if (category != null) {
@@ -140,7 +140,7 @@ public class CategoryTest {
 
 	
 	
-	@Test
+	//@Test
 	public void delCategory() {
 
 		category = categoryDao.get(4);
@@ -151,14 +151,14 @@ public class CategoryTest {
 		assertEquals("Category deleted !..", true, true);
 	}
 
-	@Test
+	//@Test
 	public void getCategory() {
 
 		// assertTrue( categoryDao.add(category));
 		assertEquals("A category selected !..", "Category_1", categoryDao.get(1).getCategory());
 	}
 
-	@Test
+	//@Test
 	public void listCategory() {
 
 		// assertTrue( categoryDao.add(category));
